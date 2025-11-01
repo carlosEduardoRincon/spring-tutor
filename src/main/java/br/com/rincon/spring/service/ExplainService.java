@@ -14,6 +14,11 @@ public class ExplainService {
     }
 
     public ExplainResponse explain(String question) {
-        return new ExplainResponse(this.chatClient.call(question));
+        var javaPrompt = "You are a Java expert. Answer only questions related to Java. " +
+                "If the question is not about Java, respond: " +
+                "\"Sorry, I can only answer questions about Java.\" \n\n" +
+                "Question: " + question;
+
+        return new ExplainResponse(this.chatClient.call(javaPrompt));
     }
 }
