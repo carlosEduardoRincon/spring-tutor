@@ -52,10 +52,10 @@ A ideia surgiu após uma palestra sobre **Spring AI** da comunidade **SouJava**,
 
 ⚙️ Configuração
   - Clone o repositório;
-  - Configure sua chave da OpenAI no arquivo application.yml:
+  - Configure sua chave da OpenAI no arquivo application.properties:
     openai:
     ```
-      api-key: "sua_chave_aqui"
+      spring.ai.openai.api-key="sua_chave_aqui"
     ```
   
   - Execute o projeto:
