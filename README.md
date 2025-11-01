@@ -8,17 +8,18 @@ A ideia surgiu após uma palestra sobre **Spring AI** da comunidade **SouJava**,
 ## 🚀 Demonstração
 
   **Requisição:**
-  ```json
-  POST /explain
+  
+  POST /explain/java
+```json
   {
-    "code": "for(int i=0; i<10; i++) System.out.println(i);"
+    "question": "for(int i=0; i<10; i++) System.out.println(i);"
   }
   ```
   
   **Resposta:**
   ```json
   {
-    "explanation": "Esse código imprime os números de 0 a 9 no console."
+    "explanation": "The code snippet you provided is a simple Java for-loop that prints the numbers from 0 to 9 to the console. Here’s a line-by-line explanation:\n\n```java\nfor(int i = 0; i < 10; i++) {\n    System.out.println(i);\n}\n```\n\n- `for(int i = 0; i < 10; i++)` initializes a loop with an integer variable `i` starting at 0. The loop will continue as long as `i` is less than 10. After each iteration, `i` is incremented by 1 (`i++`).\n\n- `System.out.println(i);` is the body of the loop, which executes in each iteration. It prints the current value of `i` to the console.\n\nWhen you run this code, the output will be:\n```\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n```\n\nEach number is printed on a new line, from 0 to 9. If you have any further questions or need additional context, feel free to ask!"
   }
   ```
   **Estrutura:**
@@ -26,29 +27,28 @@ A ideia surgiu após uma palestra sobre **Spring AI** da comunidade **SouJava**,
   SpringTutor
   ├── src/
   │   ├── main/
-  │   │   ├── java/com/springtutor/
+  │   │   ├── java/br.com.rincon/spring/
   │   │   │   ├── controller/ExplainController.java
   │   │   │   ├── service/ExplainService.java
   │   │   │   ├── dto/ExplainRequest.java
-  │   │   │   ├── dto/ExplainResponse.java
-  │   │   │   └── config/OpenAIClientConfig.java
+  │   │   │   └── dto/ExplainResponse.java
   │   │   └── resources/
-  │   │       └── application.yml
+  │   │       └── application.properties
   │   └── test/...
   └── pom.xml
   ```
 
 🧠 Como Funciona
-  - O usuário envia um trecho de código via API REST.
-  - O serviço envia esse código para o modelo de IA (por exemplo, GPT-4).
-  - O modelo responde com uma explicação humanizada.
+  - O usuário envia um trecho de código via API REST;
+  - O serviço envia esse código para o modelo de IA (por exemplo, GPT-4);
+  - O modelo responde com uma explicação humanizada;
   - O SpringTutor retorna a resposta em formato JSON.
 
 🛠️ Tecnologias Utilizadas
-  - Java 17+
-  - Spring Boot 3.x
-  - OpenAI API (via WebClient)
-  - Maven
+  - Java 17+;
+  - Spring Boot 3.x;
+  - OpenAI API;
+  - Maven.
 
 ⚙️ Configuração
   - Clone o repositório;
@@ -57,8 +57,4 @@ A ideia surgiu após uma palestra sobre **Spring AI** da comunidade **SouJava**,
     ```
       spring.ai.openai.api-key="sua_chave_aqui"
     ```
-  
-  - Execute o projeto:
-    ```
-      mvn spring-boot:run
-    ```
+  - Execute o projeto;
